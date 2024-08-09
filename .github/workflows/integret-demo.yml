@@ -17,7 +17,7 @@ jobs:
       - name: Deploy files to server
         run: |
           SERVER_USER="eve-ng"
-          SERVER_HOST="10.182.0.3"
+          SERVER_HOST="34.16.219.156"
           TARGET_DIR=/tmp/git-int
 
           ssh $SERVER_USER@$SERVER_HOST << 'EOF'
