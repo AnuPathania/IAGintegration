@@ -1,0 +1,41 @@
+name: Integrate with Ubuntu machine
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy files to server
+      run: |
+        SERVER_USER="eve-ng"
+        SERVER_HOST="34.16.219.156"
+        TARGET_DIR=/tmp/git-int
+
+        # Deploy code using rsync
+        rsync -avz --exclude='.git' ./ $SERVER_USER@$SERVER_HOST:$TARGET_DIR
+
+         # Optional: Run remote commands on the server
+        ssh $SERVER_USER@$SERVER_HOST << 'EOF'
+          cd /tmp/git-int
+          git pull origin main
+          # Restart a service if needed
+          sudo systemctl restart myapp-service
+        EOF
+
+        echo "Deployment completed successfully!"
+      
+
+   
