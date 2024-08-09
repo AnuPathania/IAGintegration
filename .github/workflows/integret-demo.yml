@@ -21,7 +21,7 @@ jobs:
     - name: Deploy files to server
       run: |
         SERVER_USER="eve-ng"
-        SERVER_HOST="34.16.219.156"
+        SERVER_HOST="10.182.0.3"
         TARGET_DIR=/tmp/git-int
 
         # Deploy code using rsync
