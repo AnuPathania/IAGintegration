@@ -18,7 +18,7 @@ jobs:
           echo "System Information:"
           uname -a
 
-      - name: Show disk usage
+      - name: Install packages
         run: |
-          echo "Disk Usage:"
-          df -h
+          sudo apt get update
+          sudo apt get install wget
