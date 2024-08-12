@@ -1,32 +1,24 @@
----
-name: Integrate with Ubuntu machine
+name: Sample Workflow
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  run-linux-commands:
+    runs-on: self-hosted
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-          
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: Deploy files to server
+
+      - name: Display system information
         run: |
-          SERVER_USER="eve-ng"
-          SERVER_HOST="34.16.219.156"
-          TARGET_DIR=/tmp/git-int
+          echo "System Information:"
+          uname -a
 
-          ssh $SERVER_USER@$SERVER_HOST << 'EOF'
-            cd /tmp/git-int
-            git pull origin main
-            # Restart a service if needed
-            sudo systemctl restart myapp-service
-          EOF
-
-          echo "Deployment completed successfully!"
+      - name: Show disk usage
+        run: |
+          echo "Disk Usage:"
+          df -h
