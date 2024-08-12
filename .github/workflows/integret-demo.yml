@@ -20,4 +20,4 @@ jobs:
 
       - name: Install packages
         run: |
-           apt get install wget
+           apt-get install wget
