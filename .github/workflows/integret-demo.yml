@@ -30,4 +30,4 @@ jobs:
           git init && \
           git config user.email 'anu.pathania01@gmail.com' && \
           git config user.name 'AnuPathania' && \
-          git fetch origin && chmod -R 600 $REMOTE_PATH/IAGintegration"
+          git fetch origin && chmod -R 600 $REMOTE_PATH"
