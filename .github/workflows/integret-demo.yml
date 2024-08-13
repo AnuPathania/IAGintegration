@@ -26,4 +26,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
-          ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_PATH && git init && git commit -m "Initial commit" && git stash && git pull origin main && chmod -R ../IAGintegration"
+          ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_PATH && git init && git add . && git commit -m "Initial commit" && git stash && git pull origin main && chmod -R ../IAGintegration"
