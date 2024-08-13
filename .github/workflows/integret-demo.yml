@@ -30,7 +30,6 @@ jobs:
           git init && \
           git config user.email 'anu.pathania01@gmail.com' && \
           git config user.name 'AnuPathania' && \
-          git remote add origin git@github.com:AnuPathania/IAGintegration.git && \
           git add . && \
           git commit -m \"Initial commit\" && \
           git pull origin main && chmod -R ../IAGintegration"
