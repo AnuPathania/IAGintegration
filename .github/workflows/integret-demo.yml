@@ -3,7 +3,7 @@ name: Run Remote Script
 on:
   push:
     branches:
-      - main
+      - main 
 
 jobs:
   remote-command:  
