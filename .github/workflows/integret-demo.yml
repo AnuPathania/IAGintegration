@@ -31,4 +31,5 @@ jobs:
           git remote add origin git@github.com:AnuPathania/IAGintegration.git && \
           git config user.email 'anu.pathania01@gmail.com' && \
           git config user.name 'AnuPathania' && \
-          git fetch origin "
+          git fetch origin && \
+          git pull origin main"
